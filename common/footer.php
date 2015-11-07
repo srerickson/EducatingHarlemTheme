@@ -25,7 +25,7 @@
         Omeka.showAdvancedForm();
         Omeka.skipNav();
         Omeka.megaMenu();
-        Berlin.dropDown();
+        Harlem.dropDown();
     });
 </script>
 
