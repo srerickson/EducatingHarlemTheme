@@ -1,0 +1,41 @@
+@import "base";
+
+@import "compass/reset";
+@import "compass/css3/box-sizing";
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3/appearance";
+@import "compass/css3/box-shadow";
+
+@import "berlin/normalize";
+@import "berlin/skeleton";
+@import "berlin/screen";
+
+@media screen and (max-width:768px) {
+    @import "berlin/768max";
+}
+
+
+#primary-nav {
+  .nav-item {
+    // &:first-child > a {
+    //   border-left: none;
+    // }
+    // & > a:focus,
+    // & > a.open {
+    //   border: none;
+    // }
+  }
+
+  .sub-nav {
+    border:none;
+  }
+}
+
+
+#content {
+  border: none;
+  border-top: 1px solid rgb(225, 225, 225);
+  padding: 1.5em 0px;
+}
+
+
