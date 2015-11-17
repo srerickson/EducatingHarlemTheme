@@ -20,7 +20,8 @@
     <?php fire_plugin_hook('public_head',array('view'=>$this)); ?>
     <!-- Stylesheets -->
     <?php
-    queue_css_file(array('iconfonts', 'style'));
+    queue_css_file(array('iconfonts', 'screen'));
+    queue_css_file('print', 'print');
 
     echo head_css();
     ?>
