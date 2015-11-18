@@ -1,16 +1,32 @@
-<?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
+<?php
+
+  $body_classes = "items show ";
+  $body_classes .= strtolower(str_replace(' ','-',$item->getItemType()->name));
+  echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => $body_classes));
+
+?>
+
+<div id="item-title-wrapper">
+  <h2 class="item-title">
+    <?php echo metadata('item', array('Dublin Core','Title')); ?>
+  </h2>
+</div>
+
+
 <div id="primary">
-  <!--
-  <h1><?php// echo metadata('item', array('Dublin Core','Title')); ?></h1>
+
 
   <div id="item-metadata">
-    <?php// echo all_element_texts('item'); ?>
+    <?php echo all_element_texts('item', array(
+        'show_element_sets' => array('Dublin Core'),
+        'show_element_set_headings' => false
+      )
+    ); ?>
   </div>
-  -->
+
 
   <!-- Files -->
   <?php
-
     function img_object($file){
       $url = file_display_url($file);
       $path = FILES_DIR . '/' . $file->getStoragePath();
@@ -27,18 +43,14 @@
     }
     $files = join( ',', array_map('img_object', $item->getFiles()));
     $sequenceMode = count($item->getFiles()) > 1 ? 'true' : 'false';
-
   ?>
 
   <?php if (count($item->getFiles())>0): ?>
-    <h3><?php// echo __('Files'); ?></h3>
-    <div id="item-images-viewer" style="height: 800px; width:800px;">
-
-    </div>
+    <div id="seadragon-viewer"></div>
 
     <script type="text/javascript">
       var viewer = OpenSeadragon({
-        id: "item-images-viewer",
+        id: "seadragon-viewer",
         prefixUrl: "../../themes/EducatingHarlemTheme/javascripts/vendor/openseadragon-2.0.0/images/",
         tileSources: [<?php echo $files?>],
         sequenceMode: <?php echo $sequenceMode?>,
