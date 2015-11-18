@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Lora:400,400italic,700|Lato:700,300,400);
+
 @import "base";
 
 @import "compass/reset";
@@ -13,6 +15,13 @@
 @media screen and (max-width:768px) {
     @import "berlin/768max";
 }
+
+body,h1, h2, h3 {
+  font-family: 'Lora', serif;
+  color: #333;
+}
+
+
 
 
 #primary-nav {
@@ -58,29 +67,29 @@
       @include row;
 
       #item-metadata {
-        @include columns(7);
-        .element-set {
-          .element{
-            @include row;
-            h3 {
-              @include columns(1);
-              @include alpha;
-            }
-            .element-text {
-              @include columns(6);
-              @include omega;
-            }
-            &#dublin-core-title {
-              display:none;
-            }
-          } // element
-        } // element-set
+        @include columns(8);
+        // .element-set {
+        //   .element{
+        //     @include row;
+        //     h3 {
+        //       @include columns(1);
+        //       @include alpha;
+        //     }
+        //     .element-text {
+        //       @include columns(7);
+        //       @include omega;
+        //     }
+        //     &#dublin-core-title {
+        //       display:none;
+        //     }
+        //   } // element
+        // } // element-set
       }
 
       #seadragon-viewer {
         background-color: #ffffff;
         border: 1px solid $border_gray;
-        @include columns(9);
+        @include columns(8);
         height: skeleton-column-width(10, $base-width);
         @media only screen and (min-width: 768px) and (max-width: 959px) {
           height: skeleton-column-width(10, $tablet-width); 
@@ -96,15 +105,18 @@
 
 .element-set {
   .element{
-    @include trailer(0);
-    margin-bottom: 5px;
+    @include trailer();
+    // margin-bottom: 5px;
     h3 {
       @include trailer(0);
-      font-size: 1em;
-      text-transform: lowercase;
+      font-size: 0.8em;
+      font-family: 'Lato', sans-serif;
+      font-weight: thin;
+      color: #ccc; 
+      text-transform: uppercase;
     }
     .element-text {
-      font-size: 1.1em;
+      font-size: 1em;
     }
   } // element
 }
