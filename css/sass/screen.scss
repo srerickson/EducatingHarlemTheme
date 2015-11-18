@@ -90,9 +90,9 @@ body,h1, h2, h3 {
         background-color: #ffffff;
         border: 1px solid $border_gray;
         @include columns(8);
-        height: skeleton-column-width(10, $base-width);
+        height: skeleton-column-width(8, $base-width);
         @media only screen and (min-width: 768px) and (max-width: 959px) {
-          height: skeleton-column-width(10, $tablet-width); 
+          height: skeleton-column-width(8, $tablet-width); 
         }
         // border-right: 1px solid $border_gray;
       } // seadragon-viewer
