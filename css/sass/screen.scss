@@ -105,13 +105,13 @@ body,h1, h2, h3 {
 
 .element-set {
   .element{
-    @include trailer();
+    @include trailer(0.5);
     // margin-bottom: 5px;
     h3 {
       @include trailer(0);
       font-size: 0.8em;
       font-family: 'Lato', sans-serif;
-      font-weight: thin;
+      font-weight: lighter;
       color: #ccc; 
       text-transform: uppercase;
     }

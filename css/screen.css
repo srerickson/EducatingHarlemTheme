@@ -2405,13 +2405,13 @@ body, h1, h2, h3 {
 }
 
 .element-set .element {
-  margin-bottom: 1.42857em;
+  margin-bottom: 0.71429em;
 }
 .element-set .element h3 {
   margin-bottom: 0em;
   font-size: 0.8em;
   font-family: 'Lato', sans-serif;
-  font-weight: thin;
+  font-weight: lighter;
   color: #ccc;
   text-transform: uppercase;
 }
