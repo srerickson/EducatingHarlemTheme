@@ -1,0 +1,41 @@
+.items.show {
+
+  #item-metadata {
+    @include columns(8);
+
+    & > h2 {
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-bottom: rhythm(0);
+  }
+
+    .description {
+      font-size: 1.1em;
+      margin-bottom: rhythm(1);
+    }
+
+    #dublin-core-title { display:none; }
+    #dublin-core-description { display:none; }
+
+
+  }
+
+  #seadragon-wrapper{
+    @include columns(8);
+    height: skeleton-column-width(8, $base-width);
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+      height: skeleton-column-width(8, $tablet-width); 
+    }
+
+    #seadragon-viewer {
+      width: 100%;
+      height: 100%;
+      @include box-shadow(#eee 1px 1px 6px  inset);
+      background-color: #fcfcfc;
+      // border: 1px solid $border_gray;
+
+      // border-right: 1px solid $border_gray;
+    } // seadragon-viewer
+  }
+
+} // .items.show
