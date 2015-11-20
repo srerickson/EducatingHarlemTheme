@@ -28,7 +28,7 @@
 
       // return seadragon tile config for the image based derivatives
       function sd_image_tile($file){
-        $derivatives = array("thumbnail","fullsize","original");
+        $derivatives = array("fullsize","original");
         $levels = array();
         foreach ($derivatives as $i => $derivative) {
           $url = $file->getWebPath($derivative);
