@@ -2280,6 +2280,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  margin: 0 0;
+}
+
 #primary-nav .nav-item a {
   font-family: 'Lato', sans-serif;
 }
@@ -2386,6 +2390,7 @@ a {
   margin-right: 10px;
   width: 400px;
   padding-left: 15px;
+  margin-bottom: 1.42857em;
 }
 @media only screen and (max-width: 767px) {
   .items.show #item-metadata {
@@ -2417,54 +2422,63 @@ a {
     padding-left: 0;
   }
 }
-.items.show #item-metadata > h2 {
-  font-size: 1em;
-  text-transform: lowercase;
-  margin-bottom: 0em;
-}
-.items.show #item-metadata #item-citation .element-text {
-  font-size: 0.8em;
-  line-height: 0.8em;
-}
-.items.show #seadragon-wrapper {
+.items.show #item-media {
   float: left;
   display: inline;
   margin-left: 10px;
   margin-right: 10px;
   width: 520px;
-  height: 460px;
   margin-bottom: 1.42857em;
 }
 @media only screen and (max-width: 767px) {
-  .items.show #seadragon-wrapper {
+  .items.show #item-media {
     margin: 0;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-  .items.show #seadragon-wrapper {
+  .items.show #item-media {
     width: 412px;
   }
 }
 @media only screen and (max-width: 767px) {
-  .items.show #seadragon-wrapper {
+  .items.show #item-media {
     width: 300px;
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  .items.show #seadragon-wrapper {
+  .items.show #item-media {
     width: 420px;
   }
 }
+.items.show #item-media #seadragon-wrapper {
+  height: 520px;
+  margin-bottom: 0.71429em;
+}
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-  .items.show #seadragon-wrapper {
-    height: 364px;
+  .items.show #item-media #seadragon-wrapper {
+    height: 412px;
   }
 }
-.items.show #seadragon-wrapper #seadragon-viewer {
+.items.show #item-media #seadragon-wrapper #seadragon-viewer {
   width: 100%;
   height: 100%;
   -moz-box-shadow: #eee 1px 1px 6px inset;
   -webkit-box-shadow: #eee 1px 1px 6px inset;
   box-shadow: #eee 1px 1px 6px inset;
   background-color: #fcfcfc;
+}
+.items.show #item-citation.element {
+  border-bottom: none;
+}
+.items.show #item-citation.element .element-text {
+  font-size: 0.8em;
+  line-height: 0.8em;
+}
+.items.show #item-files.element-set ul {
+  list-style: circle;
+  list-style-type: circle;
+  padding: 0 15px;
+}
+.items.show #item-files.element-set ul li {
+  padding: 0px;
 }
