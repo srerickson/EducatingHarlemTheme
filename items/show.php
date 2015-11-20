@@ -39,10 +39,18 @@
   </div>
 
 
-  <!-- Files -->
+  <!-- Images Files -->
   <?php
 
-    // TODO exclude non-images
+    // build list of item images
+    $imgs = array();
+    foreach ($item->getFiles() as $i => $file) {
+      if($file->has_derivative_image){
+        array_push($imgs, $file);
+      }
+    }
+
+    // return's seadragon tile config for image/file
     function img_object($file){
       $url = file_display_url($file);
       $path = FILES_DIR . '/' . $file->getStoragePath();
@@ -57,22 +65,21 @@
       }";
       return sprintf($format,$url,$dims[0],$dims[1]);
     }
-    $files = join( ',', array_map('img_object', $item->getFiles()));
-    $sequenceMode = count($item->getFiles()) > 1 ? 'true' : 'false';
+    $sd_tiles = join( ',', array_map('img_object', $imgs));
+    $sd_seqMode = count($imgs) > 1 ? 'true' : 'false';
   ?>
 
-  <?php if (count($item->getFiles())>0): ?>
+  <?php if (count($imgs)>0): ?>
     <div id="seadragon-wrapper">
       <div id="seadragon-viewer"></div>
     </div>
-
     <script type="text/javascript">
       var viewer = OpenSeadragon({
         id: "seadragon-viewer",
         prefixUrl: "../../themes/EducatingHarlemTheme/javascripts/vendor/openseadragon-2.0.0/images/",
-        tileSources: [<?php echo $files?>],
-        sequenceMode: <?php echo $sequenceMode?>,
-        showReferenceStrip: <?php echo $sequenceMode ?>
+        tileSources: [<?php echo $sd_tiles ?>],
+        sequenceMode: <?php echo $sd_seqMode ?>,
+        showReferenceStrip: <?php echo $sd_seqMode ?>
       });
     </script>
   <?php endif ?>
