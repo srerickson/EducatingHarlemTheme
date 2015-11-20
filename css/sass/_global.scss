@@ -42,6 +42,9 @@ ul {
   border: none;
   border-top: 1px solid $border_gray;
   padding: rhythm(1) 0px !important;
+  &:focus {
+    outline:none;
+  }
   // already @includes container;
 
 
@@ -81,13 +84,14 @@ ul {
     // margin-bottom: 5px;
     h3 {
       // @include trailer(0);
+      @include icon-after('\E75E');
       display: inline;
       font-size: 0.8em;
       font-family: 'Lato', sans-serif;
       font-weight: lighter;
       color: #999;
       text-transform: uppercase;
-      margin-right: rhythm(0.3);
+      margin-right: rhythm(0.2);
     }
     .element-text {
       font-size: 1em;

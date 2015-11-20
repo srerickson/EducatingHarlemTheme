@@ -37,12 +37,22 @@
   }
 
 
-  #item-files.element-set ul {
-    list-style: circle;
-    list-style-type: circle;
-    padding: 0 15px;
-    li {
-      padding: 0px;
+  #item-files.element-set {
+
+    h3 {
+      @include user-select(none);
+      @include icon-after('\E75C');
+      cursor: pointer;
+    }
+
+    ul {
+      display: none;
+      list-style: circle;
+      list-style-type: circle;
+      padding: 0 15px;
+      li {
+        padding: 0px;
+      }
     }
   }
 

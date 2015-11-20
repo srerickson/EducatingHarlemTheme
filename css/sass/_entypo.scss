@@ -44,7 +44,8 @@
   font-size: 1.45rem;
   line-height: 0.5em;
   vertical-align: -2px;
-  margin-right: 3px;
+  margin-right: 2px;
+  margin-left:1px;
   text-transform: none;
   @include user-select(none);
 }

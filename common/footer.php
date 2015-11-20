@@ -25,7 +25,8 @@
         Omeka.showAdvancedForm();
         Omeka.skipNav();
         Omeka.megaMenu();
-        Harlem.dropDown();
+        Harlem.menuDropDown();
+        Harlem.fileListToggle();
     });
 </script>
 
