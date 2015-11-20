@@ -26,22 +26,26 @@
         }
       }
 
-      // return's seadragon tile config for image/file
-      function img_object($file){
-        $url = file_display_url($file);
-        $path = FILES_DIR . '/' . $file->getStoragePath();
-        $dims = getimagesize($path);
+      // return seadragon tile config for the image based derivatives
+      function sd_image_tile($file){
+        $derivatives = array("thumbnail","fullsize","original");
+        $levels = array();
+        foreach ($derivatives as $i => $derivative) {
+          $url = $file->getWebPath($derivative);
+          $path = FILES_DIR . '/' . $file->getStoragePath($derivative);
+          $dims = getimagesize($path);
+          $format = "{url:'%s',width:%d,height:%d}";
+          array_push($levels, sprintf($format,$url,$dims[0],$dims[1]));
+        }
         $format = "{
           type: 'legacy-image-pyramid',
-          levels: [{
-            url: '%s',
-            width: %d,
-            height: %d
-          }]
+          levels: [%s]
         }";
-        return sprintf($format,$url,$dims[0],$dims[1]);
+        return sprintf($format, join(',', $levels));
       }
-      $sd_tiles = join( ',', array_map('img_object', $imgs));
+
+      // seadragon configs
+      $sd_tiles = join( ',', array_map('sd_image_tile', $imgs));
       $sd_seqMode = count($imgs) > 1 ? 'true' : 'false';
     ?>
 
