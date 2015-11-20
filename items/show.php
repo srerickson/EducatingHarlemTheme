@@ -6,37 +6,7 @@
 
 ?>
 
-<div id="title-row">
-  <h2 class="item-title">
-    <?php echo metadata('item', array('Dublin Core','Title')); ?>
-  </h2>
-</div>
-
-
 <div id="main-row">
-
-  <div id="item-metadata">
-
-    <div class='description'>
-      <?php echo metadata('item', array('Dublin Core', 'Description')); ?>
-    </div>
-
-    <?php echo all_element_texts('item', array(
-        'show_element_sets' => array('Dublin Core'),
-        'show_element_set_headings' => false
-      )
-    ); ?>
-
-    <h2>Additional Metadata</h2>
-
-    <?php echo all_element_texts('item', array(
-        'show_element_sets' => array('Item Type Metadata'),
-        'show_element_set_headings' => false
-      )
-    ); ?>
-
-
-  </div>
 
 
   <!-- Images Files -->
@@ -86,27 +56,57 @@
 
 
 
-  <?php if(metadata('item','Collection Name')): ?>
-    <div id="collection" class="element">
-      <h3><?php echo __('Collection'); ?></h3>
-      <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
+  <!-- Metadata column -->
+  <div id="item-metadata">
+
+    <?php echo all_element_texts('item', array(
+        'show_element_sets' => array('Dublin Core'),
+        'show_element_set_headings' => false
+      )
+    ); ?>
+
+
+    <!-- Item Type Metadata -->
+    <?php
+      echo $item_type_metadata = all_element_texts('item', array(
+        'show_element_sets' => array('Item Type Metadata'),
+        'show_element_set_headings' => false
+        )
+      );
+    ?>
+
+    <?php if(metadata('item','Collection Name')): ?>
+      <div class="element-set">
+        <div id="collection" class="element">
+          <h3><?php echo __('Collection'); ?></h3>
+          <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
+        </div>
+      </div>
+    <?php endif; ?>
+
+
+    <!-- The following prints a list of all tags associated with the item -->
+    <?php if (metadata('item','has tags')): ?>
+    <div class="element-set">
+      <div id="item-tags" class="element">
+        <h3><?php echo __('Tags'); ?></h3>
+        <div class="element-text"><?php echo tag_string('item'); ?></div>
+      </div>
     </div>
-  <?php endif; ?>
+    <?php endif;?>
 
-   <!-- The following prints a list of all tags associated with the item -->
-  <?php if (metadata('item','has tags')): ?>
-  <div id="item-tags" class="element">
-      <h3><?php echo __('Tags'); ?></h3>
-      <div class="element-text"><?php echo tag_string('item'); ?></div>
-  </div>
-  <?php endif;?>
 
-  <!-- The following prints a citation for this item. -->
-  <div id="item-citation" class="element">
-      <h3><?php echo __('Citation'); ?></h3>
-      <div class="element-text"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></div>
-  </div>
-     <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
+    <!-- The following prints a citation for this item. -->
+    <div class="element-set">
+      <div id="item-citation" class="element">
+        <h3><?php echo __('Citation'); ?></h3>
+        <div class="element-text"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></div>
+      </div>
+    </div>
+
+  </div> <!-- Metadata column -->
+
+  <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
 
   <ul class="item-pagination navigation">
