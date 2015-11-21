@@ -3646,7 +3646,7 @@ ul {
     width: 420px;
   }
 }
-.items.show.oral-history #item-metadata {
+.items.show.audios #item-metadata, .items.show.videos #item-metadata {
   float: left;
   display: inline;
   margin-left: 10px;
@@ -3656,36 +3656,36 @@ ul {
   margin-bottom: 1.42857em;
 }
 @media only screen and (max-width: 767px) {
-  .items.show.oral-history #item-metadata {
+  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
     margin: 0;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-  .items.show.oral-history #item-metadata {
+  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
     width: 460px;
   }
 }
 @media only screen and (max-width: 767px) {
-  .items.show.oral-history #item-metadata {
+  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
     width: 300px;
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  .items.show.oral-history #item-metadata {
+  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
     width: 420px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-  .items.show.oral-history #item-metadata {
+  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
     padding-left: 12px;
   }
 }
 @media only screen and (max-width: 767px) {
-  .items.show.oral-history #item-metadata {
+  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
     padding-left: 0;
   }
 }
-.items.show.oral-history #item-media {
+.items.show.audios #item-media, .items.show.videos #item-media {
   float: left;
   display: inline;
   margin-left: 10px;
@@ -3694,22 +3694,22 @@ ul {
   margin-bottom: 1.42857em;
 }
 @media only screen and (max-width: 767px) {
-  .items.show.oral-history #item-media {
+  .items.show.audios #item-media, .items.show.videos #item-media {
     margin: 0;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-  .items.show.oral-history #item-media {
+  .items.show.audios #item-media, .items.show.videos #item-media {
     width: 268px;
   }
 }
 @media only screen and (max-width: 767px) {
-  .items.show.oral-history #item-media {
+  .items.show.audios #item-media, .items.show.videos #item-media {
     width: 300px;
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  .items.show.oral-history #item-media {
+  .items.show.audios #item-media, .items.show.videos #item-media {
     width: 420px;
   }
 }

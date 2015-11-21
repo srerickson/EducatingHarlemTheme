@@ -12,8 +12,8 @@
     margin-bottom: rhythm(1);
   }
 
-  // oral history item-specific layout
-  &.oral-history  {
+  // layout for audio/video items
+  &.audios, &.videos  {
     #item-metadata {
       @include columns(10);
       @include offset(0.25);

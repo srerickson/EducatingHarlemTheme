@@ -1,31 +1,31 @@
 <?php
-
+  // build lists of file types
+  $files = $item->getFiles();
+  $audios = array();
+  $videos = array();
+  $images = array();
+  foreach ($files as $i => $file) {
+    if(preg_match('/^audio\/.*/', $file->mime_type)){
+      array_push($audios, $file);
+    } elseif (preg_match('/^video\/.*/', $file->mime_type)) {
+      array_push($videos, $file);
+    } elseif($file->has_derivative_image){
+      array_push($images, $file);
+    }
+  }
   $body_classes = "items show ";
   $body_classes .= strtolower(str_replace(' ','-',$item->getItemType()->name));
+  if(count($audios)>0){$body_classes .= " audios";}
+  if(count($videos)>0){$body_classes .= " videos";}
+  if(count($images)>0){$body_classes .= " images";}
   echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => $body_classes));
-
+  $theme_path = Theme::getTheme(Theme::getCurrentThemeName())->getAssetPath();
 ?>
+
 
 <div id="main-row">
 
-
-
   <div id="item-media">
-    <?php $files = $item->getFiles(); ?>
-
-
-    <!-- Audio/Video Files -->
-    <?php
-      $audios = array();
-      $videos = array();
-       foreach ($files as $i => $file) {
-        if(preg_match('/^audio\/.*/', $file->mime_type)){
-          array_push($audios, $file);
-        } elseif (preg_match('/^video\/.*/', $file->mime_type)) {
-          array_push($videos, $file);
-        }
-      }
-    ?>
 
     <?php if(count($audios)>0):?>
       <div class="player-wrapper">
@@ -34,19 +34,8 @@
     <?php endif?>
 
 
-
-
-    <!-- Images Files -->
+    <!-- Images Gallery -->
     <?php
-
-      // build list of item images
-      $imgs = array();
-      foreach ($files as $i => $file) {
-        if($file->has_derivative_image){
-          array_push($imgs, $file);
-        }
-      }
-
       // return seadragon tile config for the image based derivatives
       function sd_image_tile($file){
         $derivatives = array("fullsize","original");
@@ -66,18 +55,18 @@
       }
 
       // seadragon configs
-      $sd_tiles = join( ',', array_map('sd_image_tile', $imgs));
-      $sd_seqMode = count($imgs) > 1 ? 'true' : 'false';
+      $sd_tiles = join( ',', array_map('sd_image_tile', $images));
+      $sd_seqMode = count($images) > 1 ? 'true' : 'false';
     ?>
 
-    <?php if (count($imgs)>0): ?>
+    <?php if (count($images)>0): ?>
       <div id="seadragon-wrapper">
         <div id="seadragon-viewer"></div>
       </div>
       <script type="text/javascript">
         var viewer = OpenSeadragon({
           id: "seadragon-viewer",
-          prefixUrl: "../../themes/EducatingHarlemTheme/javascripts/vendor/openseadragon-2.0.0/images/",
+          prefixUrl: "<?php echo $theme_path; ?>/javascripts/vendor/openseadragon-2.0.0/images/",
           tileSources: [<?php echo $sd_tiles ?>],
           sequenceMode: <?php echo $sd_seqMode ?>,
           showReferenceStrip: <?php echo $sd_seqMode ?>
