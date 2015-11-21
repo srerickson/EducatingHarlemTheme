@@ -130,16 +130,25 @@
       );
     ?>
 
-    <!-- Collection Tree -->
+    <!-- Collections: use CollectionTree or fallback to default -->
     <?php if(metadata('item','Collection Name')): ?>
-      <?php
-        $collection = get_collection_for_item($item);
-        $collectionTree = get_db()->getTable('CollectionTree')->getCollectionTree($collection->id);
-        echo get_view()->partial(
-          'collections/collection-tree-list.php',
-          array('collection_tree' => $collectionTree)
-        );
-      ?>
+      <?php if(plugin_is_active('CollectionTree')): ?>
+        <?php
+          $collection = get_collection_for_item($item);
+          $collectionTree = get_db()->getTable('CollectionTree')->getCollectionTree($collection->id);
+          echo get_view()->partial(
+            'collections/collection-tree-list.php',
+            array('collection_tree' => $collectionTree)
+          );
+        ?>
+      <?php else: ?>
+        <div class="element-set">
+          <div id="collection" class="element">
+            <h3><?php echo __('Collection'); ?></h3>
+            <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
+          </div>
+        </div>
+      <?php endif ?>
     <?php endif; ?>
 
 
