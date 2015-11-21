@@ -20,6 +20,7 @@
     <?php fire_plugin_hook('public_head',array('view'=>$this)); ?>
     <!-- Stylesheets -->
     <?php
+    queue_css_file('mediaelementplayer','all',false,'javascripts/vendor/mediaelement');
     queue_css_file(array('iconfonts', 'screen'));
     queue_css_file('print', 'print');
 
@@ -30,6 +31,7 @@
     <?php queue_js_file('vendor/respond'); ?>
     <?php queue_js_file('vendor/jquery-accessibleMegaMenu'); ?>
     <?php queue_js_file('vendor/openseadragon-2.0.0/openseadragon.min'); ?>
+    <?php queue_js_file('vendor/mediaelement/mediaelement-and-player.min'); ?>
     <?php queue_js_file('harlem'); ?>
     <?php queue_js_file('globals'); ?>
     <?php echo head_js(); ?>
