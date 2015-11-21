@@ -26,7 +26,7 @@
 }
 
 @mixin icon-entypo($char) {
-  content: unicode($char);
+  content: $char;
   font-family: "EntypoRegular";
   -webkit-font-smoothing: antialiased;
   font-size: 3.3em;

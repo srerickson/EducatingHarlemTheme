@@ -3670,6 +3670,30 @@ ul {
   font-size: 0.8em;
   line-height: 0.8em;
 }
+.items.show #collection-tree.element .element-text ul {
+  display: inline;
+}
+.items.show #collection-tree.element .element-text li {
+  display: inline;
+}
+.items.show #collection-tree.element .element-text li:before {
+  content: "▸";
+  font-family: "EntypoRegular";
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.45rem;
+  line-height: 0.5em;
+  vertical-align: -2px;
+  margin-right: 2px;
+  margin-left: 1px;
+  text-transform: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.items.show #collection-tree.element .element-text > ul > li:before {
+  content: none;
+}
 .items.show #item-files.element-set h3 {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
