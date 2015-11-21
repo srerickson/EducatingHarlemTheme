@@ -27,6 +27,7 @@
         Omeka.megaMenu();
         Harlem.menuDropDown();
         Harlem.fileListToggle();
+        Harlem.initMediaElements();
     });
 </script>
 

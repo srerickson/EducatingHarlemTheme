@@ -11,6 +11,28 @@
 
 
   <div id="item-media">
+    <?php $files = $item->getFiles(); ?>
+
+
+    <!-- Audio/Video Files -->
+    <?php
+      $audios = array();
+      $videos = array();
+       foreach ($files as $i => $file) {
+        if(preg_match('/^audio\/.*/', $file->mime_type)){
+          array_push($audios, $file);
+        } elseif (preg_match('/^video\/.*/', $file->mime_type)) {
+          array_push($videos, $file);
+        }
+      }
+    ?>
+
+    <?php if(count($audios)>0):?>
+      <div class="player-wrapper">
+        <audio src="<?php echo __($audios[0]->getWebPath()); ?>" width="100%"></audio>
+      </div>
+    <?php endif?>
+
 
 
 
@@ -18,7 +40,6 @@
     <?php
 
       // build list of item images
-      $files = $item->getFiles();
       $imgs = array();
       foreach ($files as $i => $file) {
         if($file->has_derivative_image){

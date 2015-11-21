@@ -20,7 +20,14 @@ if (!Harlem) {
     $("#item-files h3").click(function(e){
       $(this).siblings("ul").toggle();
     });
+  }
 
+  Harlem.initMediaElements = function(){
+    $("audio").mediaelementplayer({
+      success: function(mediaElement, originalNode) {
+        console.log("success!")
+      }
+    });
   }
 
 })(jQuery)

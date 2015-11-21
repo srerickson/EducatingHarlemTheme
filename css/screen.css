@@ -3646,6 +3646,73 @@ ul {
     width: 420px;
   }
 }
+.items.show.oral-history #item-metadata {
+  float: left;
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 580px;
+  padding-left: 15px;
+  margin-bottom: 1.42857em;
+}
+@media only screen and (max-width: 767px) {
+  .items.show.oral-history #item-metadata {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .items.show.oral-history #item-metadata {
+    width: 460px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .items.show.oral-history #item-metadata {
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .items.show.oral-history #item-metadata {
+    width: 420px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .items.show.oral-history #item-metadata {
+    padding-left: 12px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .items.show.oral-history #item-metadata {
+    padding-left: 0;
+  }
+}
+.items.show.oral-history #item-media {
+  float: left;
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 340px;
+  margin-bottom: 1.42857em;
+}
+@media only screen and (max-width: 767px) {
+  .items.show.oral-history #item-media {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .items.show.oral-history #item-media {
+    width: 268px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .items.show.oral-history #item-media {
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .items.show.oral-history #item-media {
+    width: 420px;
+  }
+}
 .items.show #item-media #seadragon-wrapper {
   height: 520px;
   margin-bottom: 0.71429em;
@@ -3662,6 +3729,17 @@ ul {
   -webkit-box-shadow: #eee 1px 1px 6px inset;
   box-shadow: #eee 1px 1px 6px inset;
   background-color: #fcfcfc;
+}
+.items.show #item-media .player-wrapper {
+  width: 100%;
+  -moz-box-shadow: #eee 1px 1px 6px inset;
+  -webkit-box-shadow: #eee 1px 1px 6px inset;
+  box-shadow: #eee 1px 1px 6px inset;
+  background-color: #fcfcfc;
+  margin-bottom: 0.71429em;
+}
+.items.show #item-media .player-wrapper audio {
+  width: 100%;
 }
 .items.show #item-citation.element {
   border-bottom: none;
