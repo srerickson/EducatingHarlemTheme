@@ -29,7 +29,7 @@
   content: $char;
   font-family: "EntypoRegular";
   -webkit-font-smoothing: antialiased;
-  font-size: 3.3em;
+  font-size: 2rem;
   line-height: 0.5em;
   vertical-align: -4px;
   margin-right: 5px;
@@ -61,9 +61,16 @@
 }
 @mixin icon-after($char) {
   &:after {
+    @include icon-entypo($char);
+  }
+}
+
+@mixin icon-after-sm($char) {
+  &:after {
     @include icon-entypo-sm($char);
   }
 }
+
 @mixin icon-after-detail($char) {
   &:before {
     @include icon-entypo($char);

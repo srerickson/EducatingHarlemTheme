@@ -23,7 +23,7 @@ if (!Harlem) {
   }
 
   Harlem.initMediaElements = function(){
-    $("audio").mediaelementplayer({
+    $("audio,video").mediaelementplayer({
       success: function(mediaElement, originalNode) {
         console.log("success!")
       }

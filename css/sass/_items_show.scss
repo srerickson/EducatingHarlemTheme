@@ -10,28 +10,31 @@
   #item-media {
     @include columns(9);
     margin-bottom: rhythm(1);
+    #seadragon-wrapper{
+      height: skeleton-column-width(6, $base-width);
+      @media only screen and (min-width: 768px) and (max-width: 959px) {
+        height: skeleton-column-width(6, $tablet-width);
+      }
+    }
   }
 
-  // layout for audio/video items
+  // layout for audio items
   &.audios, &.videos  {
-    #item-metadata {
-      @include columns(10);
-      @include offset(0.25);
-      margin-bottom: rhythm(1);
-    }
+    #item-metadata { @include columns(10); }
     #item-media {
       @include columns(6);
-      margin-bottom: rhythm(1);
+      #seadragon-wrapper{
+        height: skeleton-column-width(6, $base-width);
+        @media only screen and (min-width: 768px) and (max-width: 959px) {
+          height: skeleton-column-width(6, $tablet-width);
+        }
+      }
     }
   }
 
 
-  // image gallery (assumes default layout)
+  // image gallery
   #item-media #seadragon-wrapper{
-    height: skeleton-column-width(9, $base-width);
-    @media only screen and (min-width: 768px) and (max-width: 959px) {
-      height: skeleton-column-width(9, $tablet-width);
-    }
     margin-bottom: rhythm(0.5);
     #seadragon-viewer {
       width: 100%;
@@ -41,7 +44,7 @@
     } // seadragon-viewer
   } // seadragon-wrapper
 
-  // audio player (assumes oral history layout?)
+  // audio player
   #item-media .player-wrapper {
     width: 100%;
     @include box-shadow(#eee 1px 1px 6px  inset);
@@ -51,8 +54,6 @@
       width: 100%;
     }
   }
-
-
 
   // metadata display tweaks
   #item-citation.element {
@@ -88,8 +89,6 @@
       }
     }
   } // #item-files.element-set
-
-
 
 
 }

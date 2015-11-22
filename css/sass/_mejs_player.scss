@@ -1,0 +1,78 @@
+.mejs-container {
+  background: #333;
+
+  .mejs-inner {
+
+    .mejs-mediaelement {}
+    .mejs-layers{}
+    .mejs-controls{
+      @include box-shadow(#ccc 0px 0px 3px  inset);
+      background: #f5f5f5;
+      div {
+        font-family: 'Lato', sans-serif;
+        color: #333;
+        // width: 26px;
+      }
+
+      .mejs-button button {
+        background: none;
+        color: #333;
+        outline: none;
+      }
+
+
+      .mejs-playpause-button {
+        button { margin: 7px 0 0 11px; }
+        &.mejs-play button { @include icon-after('\25B6');}
+        &.mejs-pause button { @include icon-after('\2016');}
+      }
+
+      .mejs-time-rail {
+        span {border-radius: 0;}
+        .mejs-time-total.mejs-time-slider {
+          outline:none;
+          background: #333;
+          .mejs-time-current { background: #ccc;}
+          .mejs-time-loaded { background: #333; }
+        }
+      }
+
+
+      .mejs-volume-button {
+        width: 24px;
+        button { margin: 7px 0px 0px 1px; }
+        &.mejs-mute button { @include icon-after('\23F7');}
+        &.mejs-unmute button { @include icon-after('\1F507');}
+      }
+
+      a.mejs-horizontal-volume-slider {
+        .mejs-horizontal-volume-total {
+          border-radius: 0;
+        }
+        .mejs-horizontal-volume-current {
+          background: #ccc;
+          border-radius: 0;
+        }
+      }
+
+      .mejs-fullscreen-button {
+        button {
+          background: none;
+          color: #333;
+          margin: 6px 0px;
+          outline: none;
+        }
+        & button { @include icon-after('\E744');}
+        &.mejs-unfullscreen button { @include icon-after('\E746');}
+
+      }
+
+
+
+    }
+    .mejs-clear{}
+
+
+  }
+
+}

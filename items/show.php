@@ -1,4 +1,7 @@
 <?php
+
+   include '_helpers.php';
+
   // build lists of file types
   $files = $item->getFiles();
   $audios = array();
@@ -7,7 +10,7 @@
   foreach ($files as $i => $file) {
     if(preg_match('/^audio\/.*/', $file->mime_type)){
       array_push($audios, $file);
-    } elseif (preg_match('/^video\/.*/', $file->mime_type)) {
+    } elseif (preg_match('/^video\/(?!quicktime)/', $file->mime_type)) {
       array_push($videos, $file);
     } elseif($file->has_derivative_image){
       array_push($images, $file);
@@ -27,6 +30,7 @@
 
   <div id="item-media">
 
+    <!-- Audio Player -->
     <?php if(count($audios)>0):?>
       <div class="player-wrapper">
         <audio src="<?php echo __($audios[0]->getWebPath()); ?>" width="100%"></audio>
@@ -34,32 +38,27 @@
     <?php endif?>
 
 
+    <!-- Video Player -->
+    <?php if(count($videos)>0):?>
+      <div class="player-wrapper">
+        <video width="340" height="240" controls="controls" preload="none">
+          <source type="<?php echo $videos[0]->mime_type; ?>"
+                   src="<?php echo $videos[0]->getWebPath(); ?>" />
+          <object width="340" height="240" type="application/x-shockwave-flash" data="<?php echo $theme_path; ?>/javascripts/vendor/mediaelement/flashmediaelement.swf">
+              <param name="movie" value="<?php echo $theme_path; ?>/javascripts/vendor/mediaelement/flashmediaelement.swf" />
+              <param name="flashvars" value="controls=true&file=<?php echo $videos[0]->getWebPath(); ?>" />
+          </object>
+        </video>
+      </div>
+    <?php endif?>
+
+
     <!-- Images Gallery -->
-    <?php
-      // return seadragon tile config for the image based derivatives
-      function sd_image_tile($file){
-        $derivatives = array("fullsize","original");
-        $levels = array();
-        foreach ($derivatives as $i => $derivative) {
-          $url = $file->getWebPath($derivative);
-          $path = FILES_DIR . '/' . $file->getStoragePath($derivative);
-          $dims = getimagesize($path);
-          $format = "{url:'%s',width:%d,height:%d}";
-          array_push($levels, sprintf($format,$url,$dims[0],$dims[1]));
-        }
-        $format = "{
-          type: 'legacy-image-pyramid',
-          levels: [%s]
-        }";
-        return sprintf($format, join(',', $levels));
-      }
-
-      // seadragon configs
-      $sd_tiles = join( ',', array_map('sd_image_tile', $images));
-      $sd_seqMode = count($images) > 1 ? 'true' : 'false';
-    ?>
-
     <?php if (count($images)>0): ?>
+      <?php // seadragon configs
+        $sd_tiles = join( ',', array_map('sd_image_tile', $images));
+        $sd_seqMode = count($images) > 1 ? 'true' : 'false';
+      ?>
       <div id="seadragon-wrapper">
         <div id="seadragon-viewer"></div>
       </div>
@@ -75,6 +74,7 @@
     <?php endif ?>
 
 
+    <!-- All Files List -->
     <?php if(count($files) > 0): ?>
       <div class="element-set" id="item-files">
         <div class="element">
@@ -91,6 +91,7 @@
         </div>
       </div>
     <?php endif?>
+
 
     <!-- The following prints a list of all tags associated with the item -->
     <?php if (metadata('item','has tags')): ?>
