@@ -3647,11 +3647,11 @@ ul {
   }
 }
 .items.show #item-media #seadragon-wrapper {
-  height: 340px;
+  height: 520px;
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .items.show #item-media #seadragon-wrapper {
-    height: 268px;
+    height: 412px;
   }
 }
 .items.show.audios #item-metadata, .items.show.videos #item-metadata {

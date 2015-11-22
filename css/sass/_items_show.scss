@@ -11,9 +11,9 @@
     @include columns(9);
     margin-bottom: rhythm(1);
     #seadragon-wrapper{
-      height: skeleton-column-width(6, $base-width);
+      height: skeleton-column-width(9, $base-width);
       @media only screen and (min-width: 768px) and (max-width: 959px) {
-        height: skeleton-column-width(6, $tablet-width);
+        height: skeleton-column-width(9, $tablet-width);
       }
     }
   }
