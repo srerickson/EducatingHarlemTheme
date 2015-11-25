@@ -1,2 +1,6 @@
 # EducatingHarlemTheme
 Omeka Theme Work for Educating Harlem
+
+## Install
+
+Install like any other Omeka theme: upload a folder with the contents of this repo to Omeka's themes directory and configure through the Admin interface. 
