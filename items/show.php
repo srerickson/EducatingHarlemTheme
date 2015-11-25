@@ -13,7 +13,7 @@
       array_push($audios, $file);
     } elseif (preg_match('/^video\/(?!quicktime)/', $file->mime_type)) {
       array_push($videos, $file);
-    } elseif($file->has_derivative_image){
+    } elseif(preg_match('/^image\/.*/', $file->mime_type)){
       array_push($images, $file);
     } elseif(preg_match('/^(application|text)\/(pdf).*/', $file->mime_type)){
       array_push($pdfs, $file);
@@ -34,6 +34,8 @@
 <div id="main-row">
 
   <div id="item-media">
+
+    <?php echo $pdfs[0]->mime_type; ?>
 
     <!-- Audio Player -->
     <?php if(count($audios)>0):?>
@@ -82,7 +84,7 @@
 
 
     <!-- Interview Transcript if present-->
-    <?php if(metadata('item', array('Item Type Metadata', 'Transcription'))): ?>
+    <?php if(metadata('item', array('Item Type Metadata', 'Transcription')) || count($pdfs)>0): ?>
       <div class="element-set">
         <div id="oral-history-item-type-metadata-transcription" class="element">
           <h3>Transcript</h3>
