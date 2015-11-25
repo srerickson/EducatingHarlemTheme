@@ -3480,6 +3480,8 @@ ul {
 #content #main-row {
   zoom: 1;
   margin-bottom: 20px;
+  padding: 0em 0px;
+  margin-bottom: 0.71429em;
 }
 #content #main-row:after {
   clear: both;
@@ -3495,8 +3497,6 @@ ul {
 #content #title-row {
   zoom: 1;
   margin-bottom: 20px;
-  padding: 0em 0px;
-  margin-bottom: 1.42857em;
 }
 #content #title-row:after {
   clear: both;
@@ -3509,33 +3509,30 @@ ul {
   width: 0;
   height: 0;
 }
-#content #title-row .item-title {
+#content #title-row .title {
   float: left;
   display: inline;
   margin-left: 10px;
   margin-right: 10px;
   width: 940px;
-  margin-bottom: 0;
-  font-size: 1.5em;
-  font-weight: lighter;
 }
 @media only screen and (max-width: 767px) {
-  #content #title-row .item-title {
+  #content #title-row .title {
     margin: 0;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-  #content #title-row .item-title {
+  #content #title-row .title {
     width: 748px;
   }
 }
 @media only screen and (max-width: 767px) {
-  #content #title-row .item-title {
+  #content #title-row .title {
     width: 300px;
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  #content #title-row .item-title {
+  #content #title-row .title {
     width: 420px;
   }
 }
@@ -3579,6 +3576,25 @@ ul {
   display: inline;
 }
 
+.items.show #title-row .title h2 {
+  display: inline;
+  font-size: 1.5em;
+  font-weight: lighter;
+  padding: 0em 0px;
+  margin-bottom: 0em;
+}
+.items.show #title-row .title .collection {
+  margin-left: 0.71429em;
+  font-size: 0.9em;
+}
+.items.show #title-row .title .collection h3 {
+  text-transform: lowercase;
+  margin-right: 0;
+}
+.items.show #title-row .title .collection h3:after {
+  vertical-align: -3px;
+  margin-right: 0;
+}
 .items.show #item-metadata {
   float: left;
   display: inline;
@@ -3676,6 +3692,18 @@ ul {
 .items.show #item-media .player-wrapper audio {
   width: 100%;
 }
+.items.show #item-metadata #dublin-core-title {
+  display: none;
+}
+.items.show #title-row .element-set {
+  display: inline;
+}
+.items.show #title-row .element-set #collection {
+  display: inline;
+}
+.items.show #title-row .element-set #collection h3 {
+  display: inline;
+}
 .items.show #item-media #oral-history-item-type-metadata-transcription a.download-transcription {
   float: right;
   font-size: 0.9em;
@@ -3703,20 +3731,17 @@ ul {
 .items.show #item-metadata #oral-history-item-type-metadata-transcription {
   display: none;
 }
-.items.show #item-citation.element {
-  border-bottom: none;
-}
 .items.show #item-citation.element .element-text {
   font-size: 0.8em;
   line-height: 0.8em;
 }
-.items.show #collection-tree.element .element-text ul {
+.items.show #collection.element .element-text ul {
   display: inline;
 }
-.items.show #collection-tree.element .element-text li {
+.items.show #collection.element .element-text li {
   display: inline;
 }
-.items.show #collection-tree.element .element-text li:before {
+.items.show #collection.element .element-text li:before {
   content: "▸";
   font-family: "EntypoRegular";
   -webkit-font-smoothing: antialiased;
@@ -3731,8 +3756,11 @@ ul {
   -webkit-user-select: none;
   user-select: none;
 }
-.items.show #collection-tree.element .element-text > ul > li:before {
+.items.show #collection.element .element-text > ul > li:before {
   content: none;
+}
+.items.show #item-files.element-set .element {
+  border-bottom: none;
 }
 .items.show #item-files.element-set h3 {
   -moz-user-select: -moz-none;

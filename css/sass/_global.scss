@@ -50,21 +50,14 @@ ul {
 
   #main-row {
     @include row;
+    padding: rhythm(0) 0px;
+    margin-bottom: rhythm(0.5);
   }
 
   #title-row {
     @include row;
-    padding: rhythm(0) 0px;
-    margin-bottom: rhythm(1);
-    .item-title {
-      @include columns(16);
-      margin-bottom:0;
-      // font-family: 'Lora', serif;
-      font-size: 1.5em;
-      font-weight: lighter;
-    }
+    .title { @include columns(16);}
   }
-
 }
 
 

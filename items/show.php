@@ -31,6 +31,36 @@
 ?>
 
 
+<div id="title-row">
+  <div class="title">
+    <h2><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h2>
+
+    <span class="collection">
+      <!-- Collections: use CollectionTree or fallback to default -->
+      <?php if(metadata('item','Collection Name')): ?>
+        <?php if(plugin_is_active('CollectionTree')): ?>
+          <?php
+            $collection = get_collection_for_item($item);
+            $collectionTree = get_db()->getTable('CollectionTree')->getCollectionTree($collection->id);
+            echo get_view()->partial(
+              'collections/collection-tree-list.php',
+              array('collection_tree' => $collectionTree)
+            );
+          ?>
+        <?php else: ?>
+          <div class="element-set">
+            <div id="collection" class="element">
+              <h3><?php echo __('from'); ?></h3>
+              <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
+            </div>
+          </div>
+        <?php endif ?>
+      <?php endif; ?>
+    </span>
+  </div>
+</div>
+
+
 <div id="main-row">
 
   <div id="item-media">
@@ -80,6 +110,25 @@
       </script>
     <?php endif ?>
 
+    <!-- The following prints a list of all tags associated with the item -->
+    <?php if (metadata('item','has tags')): ?>
+    <div class="element-set">
+      <div id="item-tags" class="element">
+        <h3><?php echo __('Tags'); ?></h3>
+        <div class="element-text"><?php echo tag_string('item'); ?></div>
+      </div>
+    </div>
+    <?php endif;?>
+
+
+    <!-- The following prints a citation for this item. -->
+    <div class="element-set">
+      <div id="item-citation" class="element">
+        <h3><?php echo __('Citation'); ?></h3>
+        <div class="element-text"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></div>
+      </div>
+    </div>
+
 
     <!-- Interview Transcript if present-->
     <?php if(metadata('item', array('Item Type Metadata', 'Transcription')) || count($pdfs)>0): ?>
@@ -119,29 +168,6 @@
 
 
 
-
-    <!-- The following prints a list of all tags associated with the item -->
-    <?php if (metadata('item','has tags')): ?>
-    <div class="element-set">
-      <div id="item-tags" class="element">
-        <h3><?php echo __('Tags'); ?></h3>
-        <div class="element-text"><?php echo tag_string('item'); ?></div>
-      </div>
-    </div>
-    <?php endif;?>
-
-
-    <!-- The following prints a citation for this item. -->
-    <div class="element-set">
-      <div id="item-citation" class="element">
-        <h3><?php echo __('Citation'); ?></h3>
-        <div class="element-text"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></div>
-      </div>
-    </div>
-
-
-
-
   </div> <!-- media column -->
 
 
@@ -168,26 +194,7 @@
       );
     ?>
 
-    <!-- Collections: use CollectionTree or fallback to default -->
-    <?php if(metadata('item','Collection Name')): ?>
-      <?php if(plugin_is_active('CollectionTree')): ?>
-        <?php
-          $collection = get_collection_for_item($item);
-          $collectionTree = get_db()->getTable('CollectionTree')->getCollectionTree($collection->id);
-          echo get_view()->partial(
-            'collections/collection-tree-list.php',
-            array('collection_tree' => $collectionTree)
-          );
-        ?>
-      <?php else: ?>
-        <div class="element-set">
-          <div id="collection" class="element">
-            <h3><?php echo __('Collection'); ?></h3>
-            <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
-          </div>
-        </div>
-      <?php endif ?>
-    <?php endif; ?>
+
 
 
   </div> <!-- Metadata column -->

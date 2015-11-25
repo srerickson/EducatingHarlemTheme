@@ -1,5 +1,30 @@
 .items.show {
 
+  #title-row {
+    .title {
+      h2 {
+        display: inline;
+        font-size: 1.5em;
+        font-weight: lighter;
+        padding: rhythm(0) 0px;
+        margin-bottom: rhythm(0);
+      }
+      .collection {
+        margin-left: rhythm(0.5);
+        font-size: 0.9em;
+        h3 {
+          text-transform: lowercase;
+          margin-right: 0;
+          &:after {
+            vertical-align: -3px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+
 
   // default two-column layout
   #item-metadata {
@@ -56,6 +81,20 @@
 
   // metadata display tweaks
 
+  #item-metadata #dublin-core-title { display: none; }
+
+  #title-row .element-set {
+    display: inline;
+    #collection {
+      display: inline;
+      h3 {
+        display: inline;
+      }
+    }
+
+  }
+
+
   #item-media #oral-history-item-type-metadata-transcription {
     a.download-transcription {
       float:right;
@@ -73,14 +112,13 @@
   }
 
   #item-citation.element {
-    border-bottom: none;
     .element-text {
       font-size: 0.8em;
       line-height: 0.8em;
     }
   }
 
-  #collection-tree.element .element-text {
+  #collection.element .element-text {
     ul { display: inline; }
     li {
       display: inline;
@@ -90,6 +128,7 @@
   }
 
   #item-files.element-set {
+    .element {border-bottom: none;}
     h3 {
       @include user-select(none);
       @include icon-after('\E75C');
