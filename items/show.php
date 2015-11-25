@@ -35,8 +35,6 @@
 
   <div id="item-media">
 
-    <?php echo $pdfs[0]->mime_type; ?>
-
     <!-- Audio Player -->
     <?php if(count($audios)>0):?>
       <div class="player-wrapper">
