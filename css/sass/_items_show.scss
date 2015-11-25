@@ -18,19 +18,18 @@
     }
   }
 
-  // layout for audio items
-  &.audios, &.videos  {
-    #item-metadata { @include columns(10); }
-    #item-media {
-      @include columns(6);
-      #seadragon-wrapper{
-        height: skeleton-column-width(6, $base-width);
-        @media only screen and (min-width: 768px) and (max-width: 959px) {
-          height: skeleton-column-width(6, $tablet-width);
-        }
-      }
-    }
-  }
+  // &.audios, &.videos  {
+  //   #item-metadata { @include columns(10); }
+  //   #item-media {
+  //     @include columns(6);
+  //     #seadragon-wrapper{
+  //       height: skeleton-column-width(6, $base-width);
+  //       @media only screen and (min-width: 768px) and (max-width: 959px) {
+  //         height: skeleton-column-width(6, $tablet-width);
+  //       }
+  //     }
+  //   }
+  // }
 
 
   // image gallery
@@ -56,6 +55,23 @@
   }
 
   // metadata display tweaks
+
+  #item-media #oral-history-item-type-metadata-transcription {
+    a.download-transcription {
+      float:right;
+      font-size: 0.9em;
+      font-family: 'Lato', sans-serif;
+      font-weight: lighter;
+      @include icon-before-sm('\1F4E5');
+    }
+    .element-text {
+      display:block;
+    }
+  }
+  #item-metadata #oral-history-item-type-metadata-transcription {
+    display:none;
+  }
+
   #item-citation.element {
     border-bottom: none;
     .element-text {

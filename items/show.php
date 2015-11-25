@@ -7,6 +7,7 @@
   $audios = array();
   $videos = array();
   $images = array();
+  $pdfs   = array();
   foreach ($files as $i => $file) {
     if(preg_match('/^audio\/.*/', $file->mime_type)){
       array_push($audios, $file);
@@ -14,10 +15,14 @@
       array_push($videos, $file);
     } elseif($file->has_derivative_image){
       array_push($images, $file);
+    } elseif(preg_match('/^(application|text)\/(pdf).*/', $file->mime_type)){
+      array_push($pdfs, $file);
     }
   }
   $body_classes = "items show ";
-  $body_classes .= strtolower(str_replace(' ','-',$item->getItemType()->name));
+  if($item_type = $item->getItemType()){
+    $body_classes .= strtolower(str_replace(' ','-',$item_type->name));
+  }
   if(count($audios)>0){$body_classes .= " audios";}
   if(count($videos)>0){$body_classes .= " videos";}
   if(count($images)>0){$body_classes .= " images";}
@@ -33,7 +38,8 @@
     <!-- Audio Player -->
     <?php if(count($audios)>0):?>
       <div class="player-wrapper">
-        <audio src="<?php echo __($audios[0]->getWebPath()); ?>" width="100%"></audio>
+        <audio src="<?php echo __($audios[0]->getWebPath()); ?>" width="100%">
+        </audio>
       </div>
     <?php endif?>
 
@@ -51,6 +57,7 @@
         </video>
       </div>
     <?php endif?>
+
 
 
     <!-- Images Gallery -->
@@ -74,6 +81,24 @@
     <?php endif ?>
 
 
+    <!-- Interview Transcript if present-->
+    <?php if(metadata('item', array('Item Type Metadata', 'Transcription'))): ?>
+      <div class="element-set">
+        <div id="oral-history-item-type-metadata-transcription" class="element">
+          <h3>Transcript</h3>
+          <?php if(count($pdfs)>0): ?>
+            <a class="download-transcription" href="<?php echo $pdfs[0]->getWebPath(); ?>" target="_blank">
+              transcript (.pdf)
+            </a>
+          <?php endif ?>
+          <div class="element-text">
+            <?php echo metadata('item', array('Item Type Metadata', 'Transcription')); ?>
+          </div>
+        </div>
+      </div>
+    <?php endif ?>
+
+
     <!-- All Files List -->
     <?php if(count($files) > 0): ?>
       <div class="element-set" id="item-files">
@@ -91,6 +116,8 @@
         </div>
       </div>
     <?php endif?>
+
+
 
 
     <!-- The following prints a list of all tags associated with the item -->

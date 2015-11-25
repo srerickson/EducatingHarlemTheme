@@ -3654,68 +3654,6 @@ ul {
     height: 412px;
   }
 }
-.items.show.audios #item-metadata, .items.show.videos #item-metadata {
-  float: left;
-  display: inline;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 580px;
-}
-@media only screen and (max-width: 767px) {
-  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
-    margin: 0;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
-    width: 460px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
-    width: 300px;
-  }
-}
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-  .items.show.audios #item-metadata, .items.show.videos #item-metadata {
-    width: 420px;
-  }
-}
-.items.show.audios #item-media, .items.show.videos #item-media {
-  float: left;
-  display: inline;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 340px;
-}
-@media only screen and (max-width: 767px) {
-  .items.show.audios #item-media, .items.show.videos #item-media {
-    margin: 0;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-  .items.show.audios #item-media, .items.show.videos #item-media {
-    width: 268px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .items.show.audios #item-media, .items.show.videos #item-media {
-    width: 300px;
-  }
-}
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-  .items.show.audios #item-media, .items.show.videos #item-media {
-    width: 420px;
-  }
-}
-.items.show.audios #item-media #seadragon-wrapper, .items.show.videos #item-media #seadragon-wrapper {
-  height: 340px;
-}
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-  .items.show.audios #item-media #seadragon-wrapper, .items.show.videos #item-media #seadragon-wrapper {
-    height: 268px;
-  }
-}
 .items.show #item-media #seadragon-wrapper {
   margin-bottom: 0.71429em;
 }
@@ -3737,6 +3675,33 @@ ul {
 }
 .items.show #item-media .player-wrapper audio {
   width: 100%;
+}
+.items.show #item-media #oral-history-item-type-metadata-transcription a.download-transcription {
+  float: right;
+  font-size: 0.9em;
+  font-family: 'Lato', sans-serif;
+  font-weight: lighter;
+}
+.items.show #item-media #oral-history-item-type-metadata-transcription a.download-transcription:before {
+  content: "📥";
+  font-family: "EntypoRegular";
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.45rem;
+  line-height: 0.5em;
+  vertical-align: -2px;
+  margin-right: 2px;
+  margin-left: 1px;
+  text-transform: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.items.show #item-media #oral-history-item-type-metadata-transcription .element-text {
+  display: block;
+}
+.items.show #item-metadata #oral-history-item-type-metadata-transcription {
+  display: none;
 }
 .items.show #item-citation.element {
   border-bottom: none;
@@ -3810,7 +3775,7 @@ ul {
   background: #f5f5f5;
 }
 .mejs-container .mejs-inner .mejs-controls div {
-  font-family: 'Lato', sans-serif;
+  font-family: sans-serif;
   color: #333;
 }
 .mejs-container .mejs-inner .mejs-controls .mejs-button button {
