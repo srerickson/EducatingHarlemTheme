@@ -1,6 +1,8 @@
 .items.show {
 
   #title-row {
+    margin-bottom: rhythm(0.5);
+
     .title {
       h2 {
         display: inline;
@@ -10,7 +12,7 @@
         margin-bottom: rhythm(0);
       }
       .collection {
-        margin-left: rhythm(0.5);
+        // margin-left: rhythm(0.5);
         font-size: 0.9em;
         h3 {
           text-transform: lowercase;

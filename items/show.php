@@ -35,7 +35,7 @@
   <div class="title">
     <h2><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h2>
 
-    <span class="collection">
+    <div class="collection">
       <!-- Collections: use CollectionTree or fallback to default -->
       <?php if(metadata('item','Collection Name')): ?>
         <?php if(plugin_is_active('CollectionTree')): ?>
@@ -56,7 +56,7 @@
           </div>
         <?php endif ?>
       <?php endif; ?>
-    </span>
+    </div>
   </div>
 </div>
 

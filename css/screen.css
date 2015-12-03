@@ -3585,6 +3585,9 @@ ul {
   display: inline;
 }
 
+.items.show #title-row {
+  margin-bottom: 0.71429em;
+}
 .items.show #title-row .title h2 {
   display: inline;
   font-size: 1.5em;
@@ -3593,7 +3596,6 @@ ul {
   margin-bottom: 0em;
 }
 .items.show #title-row .title .collection {
-  margin-left: 0.71429em;
   font-size: 0.9em;
 }
 .items.show #title-row .title .collection h3 {
