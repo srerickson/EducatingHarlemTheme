@@ -1,4 +1,4 @@
-# Educating Harlem Theme
+# Omeka Theme for _Educating Harlem_
 
 ## Install
 
