@@ -3708,7 +3708,7 @@ ul {
   display: inline;
 }
 .items.show #title-row .element-set #collection {
-  display: inline;
+  display: none;
 }
 .items.show #title-row .element-set #collection h3 {
   display: inline;
